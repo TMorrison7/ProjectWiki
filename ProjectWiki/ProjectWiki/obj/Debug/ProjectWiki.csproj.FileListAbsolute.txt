@@ -1,0 +1,15 @@
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\bin\Debug\ProjectWiki.exe.config
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\bin\Debug\ProjectWiki.exe
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\bin\Debug\ProjectWiki.pdb
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki.csprojResolveAssemblyReference.cache
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\MainWindow.g.cs
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\App.g.cs
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki_MarkupCompile.cache
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki_MarkupCompile.lref
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\MainWindow.baml
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki.g.resources
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki.Properties.Resources.resources
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki.csproj.GenerateResource.Cache
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki.csproj.CoreCompileInputs.cache
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki.exe
+C:\Users\A Guy Named Tre\Documents\Classes\Persistence Application\ProjectWiki\ProjectWiki\ProjectWiki\obj\Debug\ProjectWiki.pdb
