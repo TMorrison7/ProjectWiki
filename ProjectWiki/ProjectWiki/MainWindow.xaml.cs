@@ -32,34 +32,46 @@ namespace ProjectWiki
         {
             String start_date = startDate.Text;
             String end_date = endDate.Text;
-            checkDate(start_date, end_date);
-            MessageBox.Show(start_date + " - " + end_date);
-        }
-
-        private void checkDate(String start_date, String end_date)
-        {
-            String errorMessage = "";
-            int startdate = Int32.Parse(start_date);
-            int enddate = Int32.Parse(end_date);
-            if (startdate < enddate)
+            String error = checkDate(start_date, end_date);
+            if (error.Equals(""))
             {
-                if (startdate > 0 && startdate < 2019)
-                {
-                    
-                }
-                else if (enddate > 0 && enddate < 2019)
-                {
-
-                }
-                else
-                {
-                    errorMessage = "Your end date or start date is invalid.";
-                }
+                MessageBox.Show(start_date + " - " + end_date);
             }
             else
             {
-                errorMessage = "Your start date and end date are switched.";
+                MessageBox.Show(error);
             }
+            
+        }
+
+        private String checkDate(String start_date, String end_date)
+        {
+            String errorMessage = "";
+            if (String.IsNullOrWhiteSpace(start_date) || String.IsNullOrWhiteSpace(end_date))
+            {
+                errorMessage = "Start or End date is null, empty, or whitespace.";
+            }
+            else
+            {
+                int startdate = Int32.Parse(start_date);
+                int enddate = Int32.Parse(end_date);
+                if (startdate < enddate)
+                {
+                    if (startdate > 0 && startdate < 2019)
+                    {
+
+                    }
+                    else
+                    {
+                        errorMessage = "Your end date or start date is invalid.";
+                    }
+                }
+                else
+                {
+                    errorMessage = "Your start date and end date are switched.";
+                }
+            }
+            return errorMessage;
         }
 
         static bool startBeenFocused = false;
