@@ -35,7 +35,8 @@ namespace ProjectWiki
             String error = checkDate(start_date, end_date);
             if (error.Equals(""))
             {
-                MessageBox.Show(start_date + " - " + end_date);
+                String query = sqlQuery(start_date, end_date);
+                MessageBox.Show(/*start_date + " - " + end_date + " " + */query);
             }
             else
             {
@@ -92,6 +93,11 @@ namespace ProjectWiki
                 endDate.Text = "";
                 endBeenFocused = true;
             }
+        }
+        private String sqlQuery(String startdate, String enddate)
+        {
+            String query = "Select * from item_table where start_year <= '" + enddate + "-12-31' and end_year >= '" + startdate + "-01-01' or start_year <= '" + startdate + "-01-01' and end_year >= '" + enddate + "-12-31'";
+            return query;
         }
     }
 }
