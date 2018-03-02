@@ -43,17 +43,17 @@ namespace ProjectWiki
             }
             else
             {
-                MessageBox.Show(error);
+                MessageBox.Show("Invalid Input. Try Again");
             }
             
         }
 
-        private String checkDate(String start_date, String end_date)
+        private bool checkDate(String start_date, String end_date)
         {
-            String errorMessage = "";
+            bool isValid = false;
             if (String.IsNullOrWhiteSpace(start_date) || String.IsNullOrWhiteSpace(end_date))
             {
-                errorMessage = "Start or End date is null, empty, or whitespace.";
+                isValid = false;
             }
             else
             {
@@ -63,19 +63,19 @@ namespace ProjectWiki
                 {
                     if (startdate > 0 && startdate < 2019)
                     {
-                        
+                        isValid = true;
                     }
                     else
                     {
-                        errorMessage = "Your end date or start date is invalid.";
+                        isValid = false;
                     }
                 }
                 else
                 {
-                    errorMessage = "Your start date and end date are switched.";
+                    isValid = false;
                 }
             }
-            return errorMessage;
+            return isValid;
         }
 
         static bool startBeenFocused = false;
