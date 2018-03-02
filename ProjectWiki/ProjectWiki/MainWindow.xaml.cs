@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,8 +37,9 @@ namespace ProjectWiki
             if (error == true)
             {
                 String query = sqlQuery(start_date, end_date);
-                dataResult.Visibility = Visibility.Visible;
-                scrollBar.Visibility = Visibility.Visible;
+                String connection = "Data Source=ServerName;Intial Catalog=DatabaseName;User ID=Username;Password=password"; //change connection string
+                getData(query, connection); 
+
             }
             else
             {
@@ -61,7 +63,7 @@ namespace ProjectWiki
                 {
                     if (startdate > 0 && startdate < 2019)
                     {
-
+                        
                     }
                     else
                     {
@@ -99,6 +101,17 @@ namespace ProjectWiki
         {
             String query = "Select * from item_table where start_year <= '" + enddate + "-12-31' and end_year >= '" + startdate + "-01-01' or start_year <= '" + startdate + "-01-01' and end_year >= '" + enddate + "-12-31'";
             return query;
+        }
+
+        public static void getData(String queryString, String connectionString)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+
         }
     }
 }

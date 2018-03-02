@@ -38,8 +38,8 @@
                  VerticalAlignment="Top" 
                  Width="120"
                  GotFocus="endDate_GotFocus" Grid.Column="2"/>
-        <DataGrid x:Name="dataResult"  Visibility="Hidden" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="410" Margin="70,9.5,0,0" Grid.Row="1" Grid.RowSpan="2"/>
-        <ScrollBar x:Name="scrollBar" Visibility="Hidden" HorizontalAlignment="Left" Height="284" Margin="348,9.5,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.265,0.303" Width="21" Grid.Column="2" Grid.RowSpan="2"/>
+        <DataGrid x:Name="dataResult"  Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="410" Margin="70,9.5,0,0" Grid.Row="1" Grid.RowSpan="2"/>
+        <ScrollBar x:Name="scrollBar" Visibility="Visible" HorizontalAlignment="Left" Height="284" Margin="348,9.5,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.265,0.303" Width="21" Grid.Column="2" Grid.RowSpan="2"/>
 
 
     </Grid>
