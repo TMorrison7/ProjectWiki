@@ -37,7 +37,7 @@ namespace ProjectWiki
             if (error == true)
             {
                 String query = sqlQuery(start_date, end_date);
-                String connection = "Data Source=ServerName;Intial Catalog=DatabaseName;User ID=Username;Password=password"; //change connection string
+                String connection = "Server=RYANLAPTOP;Database=WikipediaTest;Trusted_Connection=Yes"; //change connection string
                 getData(query, connection); 
 
             }
@@ -105,12 +105,10 @@ namespace ProjectWiki
 
         public static void getData(String queryString, String connectionString)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-            }
+            SqlConnection connector = new SqlConnection(connectionString);
+            connector.Open();
+
+            SqlCommand command = new SqlCommand("");
 
         }
     }
