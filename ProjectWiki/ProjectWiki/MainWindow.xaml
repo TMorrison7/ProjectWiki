@@ -5,40 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectWiki"
         mc:Ignorable="d"
-        Title="MainWindow" Height="249.339" Width="465.058">
-    <Grid Margin="6,0,-5,3" RenderTransformOrigin="0.475,0.916">
+        Title="MainWindow" Height="539.589" Width="571.558">
+    <Grid Margin="0,0,0.5,0.5" RenderTransformOrigin="0.475,0.916">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="367*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="127*"/>
-            <RowDefinition Height="61*"/>
+            <RowDefinition Height="185*"/>
+            <RowDefinition Height="190*"/>
+            <RowDefinition Height="137*"/>
         </Grid.RowDefinitions>
-        <Button x:Name ="Submit" Content="Search" HorizontalAlignment="Left" Margin="182,9.5,0,0" VerticalAlignment="Top" Width="76" Grid.Row="2" Grid.Column="1" Height="20" Click="Submit_Click"/>
+        <Button x:Name ="submit" Content="Search" HorizontalAlignment="Left" Margin="128,144,0,0" VerticalAlignment="Top" Width="76" Grid.Column="2" Height="20" Click="Submit_Click"/>
         <TextBox x:Name="startDate"
-                 Grid.ColumnSpan="2"
+                 Grid.ColumnSpan="3"
                  HorizontalAlignment="Left"
                  Height="23" 
-                 Margin="59,48,0,0"
-                 Grid.Row="1"
+                 Margin="70,79,0,0"
                  TextWrapping="Wrap" 
                  Text="Start Date"
                  VerticalAlignment="Top"
                  Width="120"
                  GotFocus="startDate_GotFocus"/>
         <TextBox x:Name="endDate" 
-                 Grid.ColumnSpan="2" 
                  HorizontalAlignment="Left" 
                  Height="23" 
-                 Margin="258,48,0,0" 
-                 Grid.Row="1" 
+                 Margin="249,79,0,0" 
                  TextWrapping="Wrap" 
                  Text="End Date" 
                  VerticalAlignment="Top" 
                  Width="120"
-                 GotFocus="endDate_GotFocus"/>
+                 GotFocus="endDate_GotFocus" Grid.Column="2"/>
+        <DataGrid x:Name="dataResult"  Visibility="Hidden" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="410" Margin="70,9.5,0,0" Grid.Row="1" Grid.RowSpan="2"/>
+        <ScrollBar x:Name="scrollBar" Visibility="Hidden" HorizontalAlignment="Left" Height="284" Margin="348,9.5,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.265,0.303" Width="21" Grid.Column="2" Grid.RowSpan="2"/>
+
 
     </Grid>
 </Window>

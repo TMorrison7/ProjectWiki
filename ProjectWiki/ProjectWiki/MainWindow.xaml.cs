@@ -35,8 +35,10 @@ namespace ProjectWiki
             String error = checkDate(start_date, end_date);
             if (error.Equals(""))
             {
-                String query = sqlQuery(start_date, end_date);
-                MessageBox.Show(/*start_date + " - " + end_date + " " + */query);
+                //String query = sqlQuery(start_date, end_date);
+                //MessageBox.Show(/*start_date + " - " + end_date + " " + */query);
+                dataResult.Visibility = Visibility.Visible;
+                scrollBar.Visibility = Visibility.Visible;
             }
             else
             {
