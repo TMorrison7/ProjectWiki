@@ -51,7 +51,7 @@ namespace ProjectWiki
         private bool checkDate(String start_date, String end_date)
         {
             bool isValid = false;
-            if (String.IsNullOrWhiteSpace(start_date) || String.IsNullOrWhiteSpace(end_date))
+            if (String.IsNullOrWhiteSpace(start_date) || start_date.Contains("Start Date")|| end_date.Contains("End Date") || String.IsNullOrWhiteSpace(end_date))
             {
                 isValid = false;
             }
