@@ -32,8 +32,8 @@ namespace ProjectWiki
         {
             String start_date = startDate.Text;
             String end_date = endDate.Text;
-            String error = checkDate(start_date, end_date);
-            if (error.Equals(""))
+            bool error = checkDate(start_date, end_date);
+            if (error == true)
             {
                 String query = sqlQuery(start_date, end_date);
                 dataResult.Visibility = Visibility.Visible;
