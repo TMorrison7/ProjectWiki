@@ -32,8 +32,8 @@ namespace ProjectWiki
         {
             String start_date = startDate.Text;
             String end_date = endDate.Text;
-            String error = checkDate(start_date, end_date);
-            if (error.Equals(""))
+            bool error = checkDate(start_date, end_date);
+            if (error == true)
             {
                 //String query = sqlQuery(start_date, end_date);
                 //MessageBox.Show(/*start_date + " - " + end_date + " " + */query);
@@ -42,17 +42,17 @@ namespace ProjectWiki
             }
             else
             {
-                MessageBox.Show(error);
+                MessageBox.Show("Invalid Input. Try Again");
             }
             
         }
 
-        private String checkDate(String start_date, String end_date)
+        private bool checkDate(String start_date, String end_date)
         {
-            String errorMessage = "";
-            if (String.IsNullOrWhiteSpace(start_date) || String.IsNullOrWhiteSpace(end_date))
+            bool isValid = true;
+            if (String.IsNullOrWhiteSpace(start_date) || start_date.Equals("Start Date") || end_date.Equals("End Date") || String.IsNullOrWhiteSpace(end_date))
             {
-                errorMessage = "Start or End date is null, empty, or whitespace.";
+                isValid = false;
             }
             else
             {
@@ -66,15 +66,15 @@ namespace ProjectWiki
                     }
                     else
                     {
-                        errorMessage = "Your end date or start date is invalid.";
+                        isValid = false;
                     }
                 }
                 else
                 {
-                    errorMessage = "Your start date and end date are switched.";
+                    isValid = false;
                 }
             }
-            return errorMessage;
+            return isValid;
         }
 
         static bool startBeenFocused = false;
