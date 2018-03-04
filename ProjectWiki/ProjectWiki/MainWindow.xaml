@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectWiki"
         mc:Ignorable="d"
-        Title="MainWindow" Height="539.589" Width="571.558">
-    <Grid Margin="0,0,0.5,0.5" RenderTransformOrigin="0.475,0.916">
+        Title="MainWindow" Height="585.511" Width="832.481">
+    <Grid Margin="0,0,24.5,28" RenderTransformOrigin="0.475,0.916">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="90*"/>
-            <ColumnDefinition Width="367*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="185*"/>
@@ -38,8 +39,25 @@
                  VerticalAlignment="Top" 
                  Width="120"
                  GotFocus="endDate_GotFocus" Grid.Column="2"/>
-        <DataGrid x:Name="dataResult"  Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="410" Margin="70,9.5,0,0" Grid.Row="1" Grid.RowSpan="2"/>
-        <ScrollBar x:Name="scrollBar" Visibility="Visible" HorizontalAlignment="Left" Height="284" Margin="348,9.5,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.265,0.303" Width="21" Grid.Column="2" Grid.RowSpan="2"/>
+        <DataGrid x:Name="dataResult"  Visibility="Visible" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="718" Margin="70,9.5,0,0" Grid.Row="1" Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" Test1" Binding="{Binding test1ID}" Width="135"/>
+                <DataGridTextColumn Header=" Test2" Binding="{Binding test1ID}" Width="135"/>
+                <DataGridTextColumn Header=" Test3" Binding="{Binding test1ID}" Width="135"/>
+                <DataGridTextColumn Header=" Test4" Binding="{Binding test1ID}" Width="135"/>
+                <DataGridTextColumn Header=" Test5" Binding="{Binding test1ID}" Width="135"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ScrollBar x:Name="scrollBar" Visibility="Visible" HorizontalAlignment="Left" Height="284" Margin="15.5,11.5,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.265,0.303" Width="23" Grid.Column="3" Grid.RowSpan="2">
+            <ScrollBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ScrollBar.RenderTransform>
+        </ScrollBar>
 
 
     </Grid>
