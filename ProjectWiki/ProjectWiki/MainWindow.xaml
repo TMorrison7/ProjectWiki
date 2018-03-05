@@ -39,16 +39,16 @@
                  VerticalAlignment="Top" 
                  Width="120"
                  GotFocus="endDate_GotFocus" Grid.Column="2"/>
-        <DataGrid x:Name="dataResult"  Visibility="Visible" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="718" Margin="70,9.5,0,0" Grid.Row="1" Grid.RowSpan="2">
+        <DataGrid x:Name="dataResult"  Visibility="Visible" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="746" Margin="0,0.143,0,0" Grid.Row="1" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" Test1" Binding="{Binding test1ID}" Width="135"/>
-                <DataGridTextColumn Header=" Test2" Binding="{Binding test1ID}" Width="135"/>
-                <DataGridTextColumn Header=" Test3" Binding="{Binding test1ID}" Width="135"/>
-                <DataGridTextColumn Header=" Test4" Binding="{Binding test1ID}" Width="135"/>
-                <DataGridTextColumn Header=" Test5" Binding="{Binding test1ID}" Width="135"/>
+                <DataGridTextColumn Header=" Test1" Binding="{Binding UNIQUE_ID}" Width="135"/>
+                <DataGridTextColumn Header=" Test2" Binding="{Binding PAGE_NAME}" Width="135"/>
+                <DataGridTextColumn Header=" Test3" Binding="{Binding START_YEAR}" Width="135"/>
+                <DataGridTextColumn Header=" Test4" Binding="{Binding END_YEAR}" Width="135"/>
+                <DataGridTextColumn Header=" Test5" Binding="{Binding BLURB}" Width="135"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ScrollBar x:Name="scrollBar" Visibility="Visible" HorizontalAlignment="Left" Height="284" Margin="15.5,11.5,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.265,0.303" Width="23" Grid.Column="3" Grid.RowSpan="2">
+        <ScrollBar x:Name="scrollBar" Visibility="Visible" HorizontalAlignment="Left" Height="284" Margin="531.857,4.143,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.265,0.303" Width="23" Grid.Column="2" Grid.RowSpan="2">
             <ScrollBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>

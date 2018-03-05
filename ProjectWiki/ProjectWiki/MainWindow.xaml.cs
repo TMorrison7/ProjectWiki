@@ -21,12 +21,12 @@ namespace ProjectWiki
     /// </summary>
     public partial class MainWindow : Window
     {
-    
+
         public MainWindow()
         {
             InitializeComponent();
 
-        
+
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -38,20 +38,33 @@ namespace ProjectWiki
             {
                 String query = sqlQuery(start_date, end_date);
                 String connection = "Server=RYANLAPTOP;Database=WikipediaTest;Trusted_Connection=Yes"; //change connection string
-                getData(query, connection); 
+
+                SqlConnection connector = new SqlConnection(connection);
+                SqlDataReader reader;
+                connector.Open();
+
+                SqlCommand command = new SqlCommand(query, connector);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    WikiDataSet set = new WikiDataSet();
+                    set.unique_id = reader.GetString(0);
+                    MessageBox.Show(set.unique_id);
+                }
+                
 
             }
             else
             {
                 MessageBox.Show("Invalid Input. Try Again");
             }
-            
+
         }
 
         private bool checkDate(String start_date, String end_date)
         {
             bool isValid = false;
-            if (String.IsNullOrWhiteSpace(start_date) || start_date.Contains("Start Date")|| end_date.Contains("End Date") || String.IsNullOrWhiteSpace(end_date))
+            if (String.IsNullOrWhiteSpace(start_date) || start_date.Contains("Start Date") || end_date.Contains("End Date") || String.IsNullOrWhiteSpace(end_date))
             {
                 isValid = false;
             }
@@ -94,6 +107,7 @@ namespace ProjectWiki
             if (!endBeenFocused)
             {
                 endDate.Text = "";
+   
                 endBeenFocused = true;
             }
         }
@@ -106,10 +120,14 @@ namespace ProjectWiki
         public static void getData(String queryString, String connectionString)
         {
             SqlConnection connector = new SqlConnection(connectionString);
+            SqlDataReader reader;
             connector.Open();
 
-            SqlCommand command = new SqlCommand("");
+            SqlCommand command = new SqlCommand(queryString);
+            reader = command.ExecuteReader();
+           
 
+           
         }
     }
 }
