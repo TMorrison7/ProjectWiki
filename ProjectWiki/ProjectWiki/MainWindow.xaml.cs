@@ -31,6 +31,7 @@ namespace ProjectWiki
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            dataResult.Items.Clear();
             String start_date = startDate.Text;
             String end_date = endDate.Text;
             bool error = checkDate(start_date, end_date);
@@ -41,20 +42,32 @@ namespace ProjectWiki
 
                 SqlConnection connector = new SqlConnection(connection);
                 SqlDataReader reader;
-                //connector.Open();
+                connector.Open();
 
-                //SqlCommand command = new SqlCommand(query, connector);
-                //reader = command.ExecuteReader();
-              
-                    WikiDataSet set = new WikiDataSet();
-                    set.unique_id = "Fruit";
-                    set.blurb = "Gay";
-                    set.end_year = "1998";
-                    set.start_year = "1990";
-                    set.page_name = "WWE";
+                SqlCommand command = new SqlCommand(query, connector);
+                reader = command.ExecuteReader();
 
-                    dataResult.Items.Add(set);
-                
+                if(!reader.HasRows) {
+
+                    MessageBox.Show("Invalid Input. Try Again");
+     
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        WikiDataSet set = new WikiDataSet();
+                        set.page_name = reader.GetString(1);
+                        set.blurb = reader.GetString(4);
+                        set.start_year = reader.GetDateTime(2);
+                        set.end_year = reader.GetDateTime(3);
+                        set.unique_id = reader.GetString(0);
+
+                        dataResult.Items.Add(set);
+                    }
+
+                   
+                }
                 
 
             }
@@ -78,7 +91,7 @@ namespace ProjectWiki
                 int enddate = Int32.Parse(end_date);
                 if (startdate < enddate)
                 {
-                    if (startdate > 0 && startdate < 2019)
+                    if (startdate> 0 && startdate < enddate)
                     {
                         isValid = true;
                     }
