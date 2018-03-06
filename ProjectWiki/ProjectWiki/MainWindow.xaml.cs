@@ -41,16 +41,20 @@ namespace ProjectWiki
 
                 SqlConnection connector = new SqlConnection(connection);
                 SqlDataReader reader;
-                connector.Open();
+                //connector.Open();
 
-                SqlCommand command = new SqlCommand(query, connector);
-                reader = command.ExecuteReader();
-                while (reader.Read())
-                {
+                //SqlCommand command = new SqlCommand(query, connector);
+                //reader = command.ExecuteReader();
+              
                     WikiDataSet set = new WikiDataSet();
-                    set.unique_id = reader.GetString(0);
-                    MessageBox.Show(set.unique_id);
-                }
+                    set.unique_id = "Fruit";
+                    set.blurb = "Gay";
+                    set.end_year = "1998";
+                    set.start_year = "1990";
+                    set.page_name = "WWE";
+
+                    dataResult.Items.Add(set);
+                
                 
 
             }
