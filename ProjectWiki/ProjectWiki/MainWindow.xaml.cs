@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 namespace ProjectWiki
 {
     /// <summary>
@@ -141,10 +128,15 @@ namespace ProjectWiki
             connector.Open();
 
             SqlCommand command = new SqlCommand(queryString);
-            reader = command.ExecuteReader();
-           
-
-           
+            reader = command.ExecuteReader();  
         }
+
+        //public void mongoConnection(String connectionString)
+        //{
+        //    MongoClient client = new MongoClient(connectionString);
+        //    MongoServer server = client.GetServer();
+        //    MongoDatabase database = server.GetDatabase("Test");
+        //    MongoCollection symbolcollection = database.GetCollection<Symbol>("Symbols");
+        //}
     }
 }
