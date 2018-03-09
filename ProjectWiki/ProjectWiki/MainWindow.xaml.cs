@@ -28,22 +28,19 @@ namespace ProjectWiki
             String start_date = startDate.Text;
             String end_date = endDate.Text;
             bool error = checkDate(start_date, end_date);
+
             if (error == true)
             {
                 String query = sqlQuery(start_date, end_date);
                 String connection = "Server=RYANLAPTOP;Database=WikipediaTest;Trusted_Connection=Yes"; //change connection string
-
                 SqlConnection connector = new SqlConnection(connection);
                 SqlDataReader reader;
                 connector.Open();
-
                 SqlCommand command = new SqlCommand(query, connector);
                 reader = command.ExecuteReader();
 
                 if(!reader.HasRows) {
-
-                    MessageBox.Show("Invalid Input. Try Again");
-     
+                    MessageBox.Show("Invalid Input. Try Again");     
                 }
                 else
                 {
@@ -58,11 +55,7 @@ namespace ProjectWiki
 
                         dataResult.Items.Add(set);
                     }
-
-                   
                 }
-                
-
             }
             else
             {
@@ -112,6 +105,7 @@ namespace ProjectWiki
         }
 
         static bool endBeenFocused = false;
+
         private void endDate_GotFocus(object sender, RoutedEventArgs e)
         {
             if (!endBeenFocused)
@@ -121,6 +115,7 @@ namespace ProjectWiki
                 endBeenFocused = true;
             }
         }
+
         private String sqlQuery(String startdate, String enddate)
         {
             String query = "Select * from item_table where start_year <= '" + enddate + "-12-31' and end_year >= '" + startdate + "-01-01' or start_year <= '" + startdate + "-01-01' and end_year >= '" + enddate + "-12-31'";
@@ -141,8 +136,8 @@ namespace ProjectWiki
         {
             String connectionString = "";
             MongoClient client = new MongoClient(connectionString);
-            IMongoDatabase db = client.GetDatabase("school");
-            var collection = db.GetCollection<BsonDocument>("students");
+            IMongoDatabase db = client.GetDatabase("school"); //change for the DB
+            var collection = db.GetCollection<BsonDocument>("students"); //change text for the Collection
             var filter = "{ FirstName: '" + id + "'}";
             await collection.Find(filter).ForEachAsync(document => {
 
