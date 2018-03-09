@@ -1,6 +1,12 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using System.Threading.Tasks;
+
+
+
 namespace ProjectWiki
 {
     /// <summary>
@@ -131,12 +137,17 @@ namespace ProjectWiki
             reader = command.ExecuteReader();  
         }
 
-        //public void mongoConnection(String connectionString)
-        //{
-        //    MongoClient client = new MongoClient(connectionString);
-        //    MongoServer server = client.GetServer();
-        //    MongoDatabase database = server.GetDatabase("Test");
-        //    MongoCollection symbolcollection = database.GetCollection<Symbol>("Symbols");
-        //}
+        public async Task mongoConnection(String id)
+        {
+            String connectionString = "";
+            MongoClient client = new MongoClient(connectionString);
+            IMongoDatabase db = client.GetDatabase("school");
+            var collection = db.GetCollection<BsonDocument>("students");
+            var filter = "{ FirstName: '" + id + "'}";
+            await collection.Find(filter).ForEachAsync(document => {
+
+            });
+            //Console.WriteLine(document));
+        }
     }
 }
