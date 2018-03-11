@@ -31,7 +31,7 @@ namespace ProjectWiki
             if (error == true)
             {
                 String query = sqlQuery(start_date, end_date);
-                String connection = "Server=RYANLAPTOP;Database=WikipediaTest;Trusted_Connection=Yes"; //change connection string
+                String connection = "Server=NULL-VALUE\\JACOBSQL;Database=Wikipedia;Trusted_Connection=Yes"; //change connection string
                 SqlConnection connector = new SqlConnection(connection);
                 SqlDataReader reader;
                 connector.Open();
@@ -117,7 +117,7 @@ namespace ProjectWiki
 
         private String sqlQuery(String startdate, String enddate)
         {
-            String query = "Select * from item_table where start_year <= '" + enddate + "-12-31' and end_year >= '" + startdate + "-01-01' or start_year <= '" + startdate + "-01-01' and end_year >= '" + enddate + "-12-31'";
+            String query = "Select top 100 * from item_table where start_year <= '" + enddate + "-12-31' and end_year >= '" + startdate + "-01-01' or start_year <= '" + startdate + "-01-01' and end_year >= '" + enddate + "-12-31'";
             return query;
         }
 
@@ -133,14 +133,15 @@ namespace ProjectWiki
 
         public async Task mongoConnection(String id)
         {
-            String connectionString = "";
+            String connectionString = "mongodb://localhost:27017";
             MongoClient client = new MongoClient(connectionString);
             IMongoDatabase db = client.GetDatabase("wikipedia"); //change for the DB
             var collection = db.GetCollection<BsonDocument>("wiki"); //change text for the Collection
             var filter = "{ _ID: {$lte: '" + id + "'}}";
-            await collection.Find(filter).ForEachAsync(document => { MessageBox.Show(document.ToString()); });
+            await collection.Find(filter).ForEachAsync(document => 
+            //{ MessageBox.Show(document.ToString()); });
 
-            //Console.WriteLine(document));
+            Console.WriteLine(document));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
