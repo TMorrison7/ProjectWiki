@@ -4,8 +4,7 @@ using System.Windows;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading.Tasks;
-
-
+using System.Windows.Controls;
 
 namespace ProjectWiki
 {
@@ -136,13 +135,20 @@ namespace ProjectWiki
         {
             String connectionString = "";
             MongoClient client = new MongoClient(connectionString);
-            IMongoDatabase db = client.GetDatabase("school"); //change for the DB
-            var collection = db.GetCollection<BsonDocument>("students"); //change text for the Collection
-            var filter = "{ FirstName: '" + id + "'}";
-            await collection.Find(filter).ForEachAsync(document => {
+            IMongoDatabase db = client.GetDatabase("wikipedia"); //change for the DB
+            var collection = db.GetCollection<BsonDocument>("wiki"); //change text for the Collection
+            var filter = "{ _ID: {$lte: '" + id + "'}}";
+            await collection.Find(filter).ForEachAsync(document => { MessageBox.Show(document.ToString()); });
 
-            });
             //Console.WriteLine(document));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            String id_Search = ID_Search.Text;
+            mongoConnection(id_Search);
+            
+
         }
     }
 }
