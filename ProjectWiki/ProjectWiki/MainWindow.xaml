@@ -47,7 +47,7 @@
                 </DataGrid>
             </ScrollViewer>
             <TextBox x:Name="ID_Search" HorizontalAlignment="Left" Height="23" Margin="315,311.143,0,-50.143" Grid.Row="2" TextWrapping="Wrap" Text="ID Search" VerticalAlignment="Top" Width="120"/>
-            <Button Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="336,354.143,0,-90.143" Grid.Row="2"/>
+            <Button Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="336,354.143,0,-90.143" Grid.Row="2" Click="Button_Click"/>
         </Grid>
     </Viewbox>
 </Window>

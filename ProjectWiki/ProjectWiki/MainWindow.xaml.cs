@@ -4,6 +4,7 @@ using System.Windows;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading.Tasks;
+using System.Text;
 using System.Windows.Controls;
 
 namespace ProjectWiki
@@ -139,17 +140,21 @@ namespace ProjectWiki
             var collection = db.GetCollection<BsonDocument>("wiki"); //change text for the Collection
             var filter = "{ _ID: {$lte: '" + id + "'}}";
             await collection.Find(filter).ForEachAsync(document => 
-            //{ MessageBox.Show(document.ToString()); });
+            { MessageBox.Show(document.ToString()); });
 
-            Console.WriteLine(document));
+            //Console.WriteLine(document));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String id_Search = ID_Search.Text;
-            mongoConnection(id_Search);
-            
-
+                string id_search = ID_Search.Text;
+                byte[] utf8bytes = Encoding.UTF8.GetBytes(id_search);
+                byte[] unicodebytes = Encoding.Convert(Encoding.UTF8, Encoding.Unicode, utf8bytes);
+                String code = Encoding.Unicode.GetString(unicodebytes);
+                MessageBox.Show(code);
+                mongoConnection(Encoding.Unicode.GetString(unicodebytes));
         }
+        //this is where the shit breaks cause of unicode.
+       
     }
 }
